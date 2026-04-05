@@ -135,7 +135,7 @@
         "shutter_speed": "1/1000",
         "iso": "Auto",
         "iso_auto": true,
-        "iso_auto_min_ss": "1/1000",
+        "silent_mode": "On",
         "focus_mode": "AF-C",
         "focus_area": "Zone",
         "subject_recognition": "On",
@@ -150,7 +150,7 @@
         "OSS switch ON (lens) — controls stabilization, overrides camera menu"
       ],
       "field_notes": {
-        "why_manual_auto_iso": "Lock aperture (DoF) and shutter (freeze motion). ISO is the flexible variable.",
+        "why_manual_auto_iso": "Lock aperture (DoF) and shutter (freeze motion). ISO is the flexible variable. ISO AUTO Min. SS does not apply in Manual mode — shutter is already fixed.",
         "why_f63": "Maximum aperture at 350mm = maximum light. No choice here.",
         "why_1000": "Stops most perched/walking animals. Dial UP to 1/2000-1/4000 for birds in flight.",
         "when_to_adjust": "Bird in flight → shutter to 1/2000 or 1/4000. Low light perched bird → shutter to 1/500."
