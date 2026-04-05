@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="A6700">
+  <meta name="theme-color" content="#111111">
+  <link rel="manifest" href="manifest.json">
+  <title>Sony A6700 Field Guide</title>
+<style>
+  /* ── RESET & BASE ──────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --mr1: #2e7d32;
+    --mr2: #bf360c;
+    --mr3: #1565c0;
+    --m1:  #6a1b9a;
+    --m2:  #e65100;
+    --m3:  #1a237e;
+    --m4:  #4e342e;
+    --bg:  #111;
+    --surface: #1e1e1e;
+    --surface2: #2a2a2a;
+    --text: #f0f0f0;
+    --text2: #aaa;
+    --border: #333;
+  }
+
+  html { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── HEADER ────────────────────────────────────────────────── */
+  .app-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 16px 12px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .app-header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .app-header p {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 2px;
+  }
+
+  .back-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 6px;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .back-btn span { font-size: 18px; }
+
+  /* ── SLOT LIST ─────────────────────────────────────────────── */
+  #list-view { padding: 12px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 16px 4px 8px;
+  }
+
+  .slot-card {
+    background: var(--surface);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    transition: opacity 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .slot-card:active { opacity: 0.7; }
+
+  .slot-accent {
+    width: 4px;
+    flex-shrink: 0;
+  }
+
+  .slot-info {
+    padding: 12px 14px;
+    flex: 1;
+  }
+
+  .slot-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 2px;
+  }
+
+  .slot-name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .slot-meta {
+    font-size: 11px;
+    color: var(--text2);
+    margin-top: 3px;
+  }
+
+  .slot-arrow {
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    color: var(--text2);
+    font-size: 16px;
+  }
+
+  /* ── DETAIL VIEW ───────────────────────────────────────────── */
+  #detail-view { display: none; }
+
+  .detail-hero {
+    padding: 16px;
+    color: white;
+  }
+
+  .detail-slot-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 4px;
+  }
+
+  .detail-name {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .detail-recall {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 4px;
+  }
+
+  .detail-lens {
+    font-size: 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ── TABS ──────────────────────────────────────────────────── */
+  .tabs {
+    display: flex;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: calc(62px + env(safe-area-inset-top));
+    z-index: 5;
+  }
+
+  .tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text2);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .tab-btn.active {
+    color: var(--text);
+    border-bottom-color: white;
+  }
+
+  .tab-content { padding: 16px; }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── SETTINGS TABLE ────────────────────────────────────────── */
+  .settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .settings-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .settings-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .settings-table td {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .settings-table td:first-child {
+    color: var(--text2);
+    font-size: 12px;
+    width: 40%;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .settings-table td:last-child {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ── PHYSICAL SETUP ────────────────────────────────────────── */
+  .setup-block {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    margin-top: 12px;
+  }
+
+  .setup-block h3 {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .setup-list {
+    list-style: none;
+  }
+
+  .setup-list li {
+    font-size: 13px;
+    padding: 4px 0 4px 18px;
+    position: relative;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .setup-list li:last-child { border-bottom: none; }
+
+  .setup-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--text2);
+  }
+
+  /* ── WHY BLOCKS ────────────────────────────────────────────── */
+  .why-block {
+    background: var(--surface);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+
+  .why-key {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text2);
+    margin-bottom: 3px;
+  }
+
+  .why-val {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ── ADJUST BLOCK ──────────────────────────────────────────── */
+  .adjust-block {
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 4px;
+    background: #2a2200;
+    border: 1px solid #5a4500;
+  }
+
+  .adjust-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffca28;
+    margin-bottom: 6px;
+  }
+
+  .adjust-text {
+    font-size: 13px;
+    color: #ddd;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────────── -->
+<header class="app-header" id="app-header">
+  <button class="back-btn" id="back-btn" onclick="showList()">
+    <span>‹</span> All Slots
+  </button>
+  <h1 id="header-title">Sony A6700</h1>
+  <p id="header-sub">Field Reference Guide</p>
+</header>
+
+<!-- ── LIST VIEW ─���────────────────────────────────────────────── -->
+<div id="list-view"></div>
+
+<!-- ── DETAIL VIEW ─��──────────────────────────────────────────── -->
+<div id="detail-view">
+  <div class="detail-hero" id="detail-hero"></div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('settings')">Settings</button>
+    <button class="tab-btn" onclick="switchTab('why')">Why &amp; Adjust</button>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab-settings"></div>
+    <div class="tab-pane" id="tab-why"></div>
+  </div>
+</div>
+
+<script>
+// ── DATA ────────────────────────────────────────────────────────
+const SLOTS = [
+  {
+    id: 'MR1', color: '#2e7d32', tier: 'dial',
+    name: 'Landscapes',
+    recall: 'Mode dial → position 1',
+    lens: 'Primary: Sigma 10-18mm f/2.8 · Alt: Sony 70-350mm',
+    settings: [
+      ['Mode', 'Aperture Priority (A)'],
+      ['Aperture', 'f/8'],
+      ['ISO', '100 · Auto OFF'],
+      ['Focus Mode', 'AF-S'],
+      ['Focus Area', 'Zone'],
+      ['Subject Recog', 'Off'],
+      ['Drive', 'Single'],
+      ['White Balance', 'Auto'],
+      ['SteadyShot', 'On (Off on tripod)'],
+      ['Metering', 'Multi'],
+      ['Creative Look', 'ST'],
+    ],
+    setup: [
+      'Mount Sigma 10-18mm f/2.8',
+      'Tripod recommended for slow shutter speeds',
+      'Turn SteadyShot OFF if on tripod',
+    ],
+    why: [
+      ['Why f/8?', 'Lens sweet spot. Maximum sharpness + deep DoF. Avoid f/16+ (diffraction blur).'],
+      ['Why ISO 100?', 'Base ISO = cleanest image. Camera controls shutter speed automatically.'],
+      ['Why AF-S?', 'Landscapes don\'t move. Lock focus once, compose, shoot.'],
+      ['Why SteadyShot OFF on tripod?', 'IS on a tripod causes micro-vibrations that blur the image.'],
+    ],
+    adjust: 'Clouds moving fast → raise shutter speed manually.\nVery dark scene → allow ISO up to 400.\nWant creative blur (waterfall) → use Shutter Priority instead.',
+  },
+  {
+    id: 'MR2', color: '#bf360c', tier: 'dial',
+    name: 'Wildlife',
+    recall: 'Mode dial → position 2',
+    lens: 'Primary: Sony 70-350mm f/4.5-6.3 OSS',
+    settings: [
+      ['Mode', 'Manual (M)'],
+      ['Aperture', 'f/6.3'],
+      ['Shutter', '1/1000s → adjust in field'],
+      ['ISO', 'Auto · no limit'],
+      ['Focus Mode', 'AF-C'],
+      ['Focus Area', 'Zone'],
+      ['Subject Recog', 'On · Animal'],
+      ['Drive', 'Hi Burst'],
+      ['Silent Mode', 'On'],
+      ['SteadyShot', 'On (via lens OSS switch)'],
+      ['Metering', 'Multi'],
+    ],
+    setup: [
+      'Mount Sony 70-350mm',
+      'OSS switch ON (on the lens)',
+    ],
+    why: [
+      ['Why Manual + Auto ISO?', 'You guarantee aperture (DoF) AND shutter (freeze motion). ISO floats to compensate.'],
+      ['Why f/6.3?', 'Maximum aperture at 350mm. No choice — gather all available light.'],
+      ['Why 1/1000s?', 'Freezes walking/perched animals. Noisy sharp photo beats clean blurry one.'],
+      ['Why silent mode?', 'Avoids startling animals. Electronic shutter = zero noise.'],
+    ],
+    adjust: 'Bird in flight → shutter to 1/2000–1/4000.\nPerched in low light → shutter to 1/500.\nPanning shot → lower to 1/250 for motion blur background.',
+  },
+  {
+    id: 'MR3', color: '#1565c0', tier: 'dial',
+    name: 'General / Street',
+    recall: 'Mode dial → position 3',
+    lens: 'Primary: Sigma 18-50mm f/2.8',
+    settings: [
+      ['Mode', 'Aperture Priority (A)'],
+      ['Aperture', 'f/5.6'],
+      ['ISO', 'Auto · min SS 1/125'],
+      ['Focus Mode', 'AF-S'],
+      ['Focus Area', 'Wide'],
+      ['Subject Recog', 'On · Human'],
+      ['Eye Select', 'Auto'],
+      ['Drive', 'Single'],
+      ['White Balance', 'Auto'],
+      ['SteadyShot', 'On'],
+      ['Metering', 'Multi'],
+    ],
+    setup: [
+      'Mount Sigma 18-50mm f/2.8',
+    ],
+    why: [
+      ['Why Aperture Priority?', 'Walk-around doesn\'t need fast shutter. You pick the DoF, camera handles the rest.'],
+      ['Why f/5.6?', 'Sharp + versatile. Not so narrow it loses light, not so wide backgrounds distract.'],
+      ['Why min SS 1/125?', 'Keeps moving people sharp. Camera won\'t go below this — ISO compensates.'],
+      ['Why Wide focus area?', 'Lets the camera find subjects anywhere in the frame. Human recognition guides it.'],
+    ],
+    adjust: 'Dark interior → open to f/2.8.\nPortrait of someone → switch to M1 instead.\nBusy scene, no people → turn Subject Recog off.',
+  },
+  {
+    id: 'M1', color: '#6a1b9a', tier: 'card',
+    name: 'Portrait / People',
+    recall: 'Dial → 1/2/3 · Menu → Recall → M1',
+    lens: 'Primary: Sigma 18-50mm f/2.8 at 50mm · Alt: 70-350mm at 70mm',
+    settings: [
+      ['Mode', 'Aperture Priority (A)'],
+      ['Aperture', 'f/2.8'],
+      ['ISO', 'Auto · min SS 1/125'],
+      ['Focus Mode', 'AF-S'],
+      ['Focus Area', 'Wide'],
+      ['Subject Recog', 'On · Human'],
+      ['Eye Select', 'Auto'],
+      ['Face Priority', 'On'],
+      ['Drive', 'Single'],
+      ['White Balance', 'Auto'],
+      ['SteadyShot', 'On'],
+      ['Metering', 'Multi'],
+    ],
+    setup: [
+      'Mount Sigma 18-50mm, zoom to 50mm',
+      'Alt: 70-350mm at 70mm for compressed portrait',
+    ],
+    why: [
+      ['Why f/2.8?', 'Widest aperture on 18-50mm = maximum subject/background separation (bokeh).'],
+      ['Why Eye AF?', 'Eyes are the most critical part of a portrait. Camera locks on them automatically.'],
+      ['Why min SS 1/125?', 'Prevents subject motion blur even when people shift slightly.'],
+      ['Future upgrade', 'Sigma 56mm f/1.4 (~$400) or Sony 50mm f/1.8 (~$250) for stronger bokeh.'],
+    ],
+    adjust: 'Group photo → stop down to f/5.6 so everyone is sharp.\nVery dark → let ISO go higher, keep f/2.8.\nChild running → switch to AF-C.',
+  },
+  {
+    id: 'M2', color: '#e65100', tier: 'card',
+    name: 'Low Light / Dusk-Dawn',
+    recall: 'Dial → 1/2/3 · Menu → Recall → M2',
+    lens: 'Primary: Sony 11mm f/1.8 · Alt: Sigma 18-50mm f/2.8',
+    settings: [
+      ['Mode', 'Aperture Priority (A)'],
+      ['Aperture', 'f/1.8 (widest of lens)'],
+      ['ISO', 'Auto · min SS 1/60'],
+      ['Focus Mode', 'AF-S'],
+      ['Focus Area', 'Wide'],
+      ['Subject Recog', 'On · Human'],
+      ['Drive', 'Single'],
+      ['White Balance', 'Auto'],
+      ['SteadyShot', 'On'],
+      ['Long Exp NR', 'Off'],
+      ['Metering', 'Multi'],
+    ],
+    setup: [
+      'Mount lens with widest aperture',
+      '11mm f/1.8 = maximum light gathering',
+    ],
+    why: [
+      ['Why wide open?', 'In low light, gathering light is priority #1. DoF is secondary.'],
+      ['Why min SS 1/60?', 'Handheld limit for wide lenses. Below 1/60 = camera shake blur.'],
+      ['Why 11mm first?', 'f/1.8 gathers 2.25× more light than f/2.8 lenses. Massive difference.'],
+      ['Why Long Exp NR off?', 'At 1/60s+ we never trigger long-exposure NR. Off avoids future delays.'],
+    ],
+    adjust: 'Static scene, camera on surface → drop to 1/15.\nMoving people → keep 1/60 or raise it.\nAlmost dark + tripod → switch to M3.',
+  },
+  {
+    id: 'M3', color: '#1a237e', tier: 'card',
+    name: 'Night Sky / Stars ★',
+    recall: 'Dial → 1/2/3 · Menu → Recall → M3',
+    lens: 'Primary: Sony 11mm f/1.8 · Alt: Sigma 10-18mm f/2.8',
+    settings: [
+      ['Mode', 'Manual (M)'],
+      ['Aperture', 'f/1.8'],
+      ['Shutter', '20s'],
+      ['ISO', '3200 · Auto OFF'],
+      ['Focus Mode', 'MF'],
+      ['Focus Area', 'Center'],
+      ['Subject Recog', 'Off'],
+      ['Drive', 'Self-timer 2s'],
+      ['White Balance', 'Daylight'],
+      ['SteadyShot', 'OFF'],
+      ['Long Exp NR', 'Off'],
+    ],
+    setup: [
+      'Mount Sony 11mm f/1.8',
+      'TRIPOD — mandatory',
+      'SteadyShot OFF',
+      'Focus: zoom on star → rotate until pinpoint → lock',
+    ],
+    why: [
+      ['Why f/1.8?', 'Gathers 2.25× more light than f/2.8. Stars need every photon.'],
+      ['Why 20 seconds?', '500 rule: 500÷11mm = 45s max. 20s is safe — stars stay round, not trails.'],
+      ['Why ISO 3200?', 'Starting point. Dark sky → try 1600. Light pollution → try 6400.'],
+      ['Why Daylight WB?', 'AWB makes stars orange. Daylight = neutral white stars, natural sky color.'],
+      ['Why 2s timer?', 'Pressing shutter causes vibration. 2s delay lets the camera settle.'],
+    ],
+    adjust: 'Moon up → shorten to 10s.\nVery dark sky → try 25s.\nStars trailing → shorten shutter.',
+  },
+  {
+    id: 'M4', color: '#4e342e', tier: 'card',
+    name: 'Video — Wildlife',
+    recall: 'S&Q dial → Movie · Recall → M4',
+    lens: 'Primary: Sony 70-350mm f/4.5-6.3 OSS',
+    settings: [
+      ['Mode', 'Manual (M) — Video'],
+      ['Format', 'XAVC S 4K · 60p'],
+      ['Aperture', 'f/6.3'],
+      ['Shutter', '1/125s'],
+      ['ISO', 'Auto · no limit'],
+      ['Focus Mode', 'AF-C'],
+      ['Focus Area', 'Zone'],
+      ['Subject Recog', 'On · Animal'],
+      ['SteadyShot', 'Active'],
+      ['Audio', 'On'],
+      ['Picture Profile', 'Standard'],
+    ],
+    setup: [
+      'Still/Movie/S&Q dial → Movie',
+      'Mount Sony 70-350mm',
+      'OSS switch ON (on the lens)',
+    ],
+    why: [
+      ['Why 1/125s shutter?', '180° rule: shutter = 2× frame rate. 60p → 1/125s = natural motion blur.'],
+      ['Why 60p?', 'Smooth motion + slow-motion option in post (play at 30p = 2× slow motion).'],
+      ['Why Active SteadyShot?', 'Maximum stabilization for handheld video with a long telephoto lens.'],
+      ['S-Log3 option', 'If color grading in post: switch Picture Profile to S-Log3. Flat/grey on screen is normal.'],
+    ],
+    adjust: 'Want cinematic look → switch to 30p / 1/60s.\nColor grading in post → switch to S-Log3.\nNoisy audio → check wind noise reduction.',
+  },
+];
+
+// ── RENDER LIST ─────────────────────────────────────────────────
+function renderList() {
+  const el = document.getElementById('list-view');
+  const dialSlots = SLOTS.filter(s => s.tier === 'dial');
+  const cardSlots = SLOTS.filter(s => s.tier === 'card');
+
+  let html = `<div class="section-label">Mode Dial — Instant Access</div>`;
+  dialSlots.forEach(s => { html += slotCardHTML(s); });
+  html += `<div class="section-label">Card Slots — Menu Recall</div>`;
+  cardSlots.forEach(s => { html += slotCardHTML(s); });
+
+  el.innerHTML = html;
+}
+
+function slotCardHTML(s) {
+  const meta = s.tier === 'dial'
+    ? `Dial → ${s.id.replace('MR','')}`
+    : `Menu → Recall → ${s.id}`;
+  return `
+    <div class="slot-card" onclick="showDetail('${s.id}')">
+      <div class="slot-accent" style="background:${s.color}"></div>
+      <div class="slot-info">
+        <div class="slot-badge" style="color:${s.color}">${s.id}</div>
+        <div class="slot-name">${s.name}</div>
+        <div class="slot-meta">${meta}</div>
+      </div>
+      <div class="slot-arrow">›</div>
+    </div>`;
+}
+
+// ── SHOW DETAIL ─────────────────────────────────────────────────
+function showDetail(id) {
+  const s = SLOTS.find(x => x.id === id);
+
+  // Hero
+  document.getElementById('detail-hero').style.background = s.color;
+  document.getElementById('detail-hero').innerHTML = `
+    <div class="detail-slot-badge">${s.id}</div>
+    <div class="detail-name">${s.name}</div>
+    <div class="detail-recall">${s.recall}</div>
+    <div class="detail-lens">${s.lens}</div>`;
+
+  // Settings tab
+  let rows = s.settings.map(([k,v]) =>
+    `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  let setupItems = s.setup.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('tab-settings').innerHTML = `
+    <table class="settings-table">${rows}</table>
+    <div class="setup-block">
+      <h3>Physical Setup</h3>
+      <ul class="setup-list">${setupItems}</ul>
+    </div>`;
+
+  // Why tab
+  let whyBlocks = s.why.map(([k,v]) =>
+    `<div class="why-block"><div class="why-key">${k}</div><div class="why-val">${v}</div></div>`
+  ).join('');
+  document.getElementById('tab-why').innerHTML = `
+    ${whyBlocks}
+    <div class="adjust-block">
+      <div class="adjust-title">When to adjust in the field</div>
+      <div class="adjust-text">${s.adjust.replace(/\n/g,'<br>')}</div>
+    </div>`;
+
+  // Reset tabs
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===0));
+  document.querySelectorAll('.tab-pane').forEach((p,i) => p.classList.toggle('active', i===0));
+
+  // Switch views
+  document.getElementById('list-view').style.display = 'none';
+  document.getElementById('detail-view').style.display = 'block';
+  document.getElementById('back-btn').style.display = 'flex';
+  document.getElementById('header-title').textContent = s.name;
+  document.getElementById('header-sub').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+
+// ── SHOW LIST ───────────────────────────────────────────────────
+function showList() {
+  document.getElementById('list-view').style.display = 'block';
+  document.getElementById('detail-view').style.display = 'none';
+  document.getElementById('back-btn').style.display = 'none';
+  document.getElementById('header-title').textContent = 'Sony A6700';
+  document.getElementById('header-sub').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+// ── TAB SWITCH ──────────────────────────────────────────────────
+function switchTab(name) {
+  const idx = name === 'settings' ? 0 : 1;
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.tab-pane').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+
+// ── SERVICE WORKER ──────────────────────────────────────────────
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+
+// ── INIT ────────────────────────────────────────────────────────
+renderList();
+</script>
+</body>
+</html>

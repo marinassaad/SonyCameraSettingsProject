@@ -1,0 +1,22 @@
+{
+  "name": "Sony A6700 Field Guide",
+  "short_name": "A6700",
+  "description": "Camera configuration reference for Sony A6700",
+  "start_url": "/SonyCameraSettingsProject/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
