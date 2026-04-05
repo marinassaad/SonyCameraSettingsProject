@@ -1,0 +1,13 @@
+# Manuals — too large for git
+Reference/Manuals/
+reference/manuals/
+
+# Sample photos for field test analysis
+review/
+
+# Generated output (regenerated from JSON)
+output/
+
+# OS
+.DS_Store
+Thumbs.db

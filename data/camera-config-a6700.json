@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "camera": "Sony A6700",
+    "model": "ILCE-6700",
+    "firmware": "2.0",
+    "owner": "Marina",
+    "project": "SonyCameraSettingsProject",
+    "reference": "https://github.com/nksalgado-proton/LumixCameraSettingsProject",
+    "last_updated": "2026-04-05",
+    "notes": "Single source of truth for all camera settings. Field cards and PWA are generated from this file."
+  },
+
+  "gear": {
+    "lenses": [
+      {
+        "id": "sony-11mm",
+        "name": "Sony E 11mm f/1.8",
+        "focal_length_mm": 11,
+        "focal_length_eq": 16.5,
+        "max_aperture": 1.8,
+        "oss": false,
+        "primary_use": ["astrophotography", "low-light", "ultra-wide"]
+      },
+      {
+        "id": "sigma-10-18",
+        "name": "Sigma 10-18mm f/2.8 DC DN Contemporary",
+        "focal_length_mm": "10-18",
+        "focal_length_eq": "15-27",
+        "max_aperture": 2.8,
+        "oss": false,
+        "primary_use": ["landscape", "architecture", "ultra-wide-zoom"]
+      },
+      {
+        "id": "sigma-18-50",
+        "name": "Sigma 18-50mm f/2.8 DC DN Contemporary",
+        "focal_length_mm": "18-50",
+        "focal_length_eq": "27-75",
+        "max_aperture": 2.8,
+        "oss": false,
+        "primary_use": ["street", "travel", "everyday", "portrait"]
+      },
+      {
+        "id": "sony-70-350",
+        "name": "Sony E 70-350mm f/4.5-6.3 G OSS",
+        "focal_length_mm": "70-350",
+        "focal_length_eq": "105-525",
+        "max_aperture": "4.5-6.3",
+        "oss": true,
+        "primary_use": ["wildlife", "birds", "telephoto"]
+      }
+    ]
+  },
+
+  "global_settings": {
+    "_comment": "Set once, never change. Apply across all modes.",
+    "image_quality": {
+      "file_format": "RAW",
+      "raw_file_type": "Lossless Compressed",
+      "aspect_ratio": "3:2",
+      "menu_path": "MENU → (Shooting) → Image Quality/Rec"
+    },
+    "display": {
+      "grid_line_display": "On",
+      "grid_line_type": "Rule of 3rds",
+      "histogram": "On",
+      "level_gauge": "On",
+      "menu_path": "MENU → (Shooting) → Shooting Display"
+    },
+    "focus_assist": {
+      "peaking_display": "On",
+      "peaking_level": "Mid",
+      "peaking_color": "Red",
+      "menu_path": "MENU → (Focus) → Peaking Display"
+    },
+    "autofocus": {
+      "subject_recog_in_af": "On",
+      "af_illuminator": "On",
+      "menu_path": "MENU → (Focus) → AF/MF and Subject Recognition"
+    },
+    "playback": {
+      "auto_review": "2 Sec",
+      "menu_path": "MENU → (Setup) → Power Setting Option"
+    },
+    "custom_buttons": {
+      "C1": "ISO",
+      "C2": "White Balance",
+      "C3": "Focus Mode",
+      "AEL": "Eye AF (hold)",
+      "menu_path": "MENU → (Setup) → Operation Customize → Custom Key/Dial Set."
+    }
+  },
+
+  "memory_slots": {
+    "MR1": {
+      "name": "Landscapes",
+      "dial_position": "1",
+      "recall_method": "Mode dial → position 1",
+      "primary_lens": "sigma-10-18",
+      "secondary_lens": "sony-70-350",
+      "settings": {
+        "shoot_mode": "Aperture Priority (A)",
+        "aperture": "f/8",
+        "shutter_speed": "Auto",
+        "iso": 100,
+        "iso_auto": false,
+        "focus_mode": "AF-S",
+        "focus_area": "Zone",
+        "subject_recognition": "Off",
+        "drive_mode": "Single Shooting",
+        "white_balance": "Auto",
+        "steadyshot_still": "On",
+        "metering_mode": "Multi",
+        "creative_look": "ST"
+      },
+      "physical_setup": [
+        "Mount Sigma 10-18mm f/2.8",
+        "Tripod: recommended for slow shutter speeds",
+        "Turn SteadyShot OFF if on tripod"
+      ],
+      "field_notes": {
+        "why_f8": "Sweet spot for sharpness. f/5.6–f/11 range. Avoid f/16+ (diffraction blur).",
+        "why_iso100": "Base ISO = cleanest image. Camera controls shutter speed.",
+        "when_to_adjust": "Clouds moving fast? Increase shutter speed in dial. Very dark? Allow ISO up to 400."
+      }
+    },
+
+    "MR2": {
+      "name": "Wildlife",
+      "dial_position": "2",
+      "recall_method": "Mode dial → position 2",
+      "primary_lens": "sony-70-350",
+      "settings": {
+        "shoot_mode": "Manual (M)",
+        "aperture": "f/6.3",
+        "shutter_speed": "1/1000",
+        "iso": "Auto",
+        "iso_auto": true,
+        "iso_auto_min_ss": "1/1000",
+        "focus_mode": "AF-C",
+        "focus_area": "Zone",
+        "subject_recognition": "On",
+        "recognition_target": "Animal",
+        "drive_mode": "Hi Burst",
+        "white_balance": "Auto",
+        "steadyshot_still": "On",
+        "steadyshot_mode": "Mode 2 (panning)",
+        "metering_mode": "Multi"
+      },
+      "physical_setup": [
+        "Mount Sony 70-350mm",
+        "OSS switch ON (lens)",
+        "Set SteadyShot to Mode 2 for panning"
+      ],
+      "field_notes": {
+        "why_manual_auto_iso": "Lock aperture (DoF) and shutter (freeze motion). ISO is the flexible variable.",
+        "why_f63": "Maximum aperture at 350mm = maximum light. No choice here.",
+        "why_1000": "Stops most perched/walking animals. Dial UP to 1/2000-1/4000 for birds in flight.",
+        "when_to_adjust": "Bird in flight → shutter to 1/2000 or 1/4000. Low light perched bird → shutter to 1/500."
+      }
+    },
+
+    "MR3": {
+      "name": "General / Street",
+      "dial_position": "3",
+      "recall_method": "Mode dial → position 3",
+      "primary_lens": "sigma-18-50",
+      "settings": {
+        "shoot_mode": "Aperture Priority (A)",
+        "aperture": "f/5.6",
+        "shutter_speed": "Auto",
+        "iso": "Auto",
+        "iso_auto": true,
+        "focus_mode": "AF-S",
+        "focus_area": "Wide",
+        "subject_recognition": "On",
+        "recognition_target": "Human",
+        "right_left_eye_select": "Auto",
+        "drive_mode": "Single Shooting",
+        "white_balance": "Auto",
+        "steadyshot_still": "On",
+        "metering_mode": "Multi"
+      },
+      "physical_setup": [
+        "Mount Sigma 18-50mm f/2.8"
+      ],
+      "field_notes": {
+        "why_aperture_priority": "Walk-around doesn't need fast shutter. Pick aperture (DoF), let camera handle rest.",
+        "why_f56": "Sharp, versatile, decent DoF. Not so narrow it loses light; not so wide backgrounds blur too much.",
+        "when_to_adjust": "Dark market → allow wider aperture (f/2.8). Want background blur for a person → f/2.8."
+      }
+    },
+
+    "M1": {
+      "name": "Portrait / People",
+      "recall_method": "MENU → (Shooting) → Shooting Mode → Recall Camera Setting → M1",
+      "primary_lens": "sigma-18-50",
+      "settings": {
+        "shoot_mode": "Aperture Priority (A)",
+        "aperture": "f/2.8",
+        "shutter_speed": "Auto",
+        "iso": "Auto",
+        "iso_auto": true,
+        "focus_mode": "AF-S",
+        "focus_area": "Wide",
+        "subject_recognition": "On",
+        "recognition_target": "Human",
+        "right_left_eye_select": "Auto",
+        "regist_face_priority": "On",
+        "drive_mode": "Single Shooting",
+        "white_balance": "Auto",
+        "steadyshot_still": "On",
+        "metering_mode": "Multi",
+        "soft_skin_effect": "Low"
+      },
+      "physical_setup": [
+        "Mount Sigma 18-50mm f/2.8, set to 50mm for tighter framing",
+        "OR Sony 70-350mm at 70mm for compressed portrait"
+      ],
+      "field_notes": {
+        "why_f28": "Widest available on 18-50mm = maximum bokeh. Subject sharp, background soft.",
+        "why_eye_af": "Eye AF locks focus on the eye — most important part of a portrait.",
+        "future_upgrade": "Sigma 56mm f/1.4 (~$400) or Sony 50mm f/1.8 (~$250) for stronger bokeh."
+      }
+    },
+
+    "M2": {
+      "name": "Low Light / Dusk-Dawn",
+      "recall_method": "MENU → (Shooting) → Shooting Mode → Recall Camera Setting → M2",
+      "primary_lens": "sony-11mm",
+      "secondary_lens": "sigma-18-50",
+      "settings": {
+        "shoot_mode": "Aperture Priority (A)",
+        "aperture": "Widest available (f/1.8 with 11mm, f/2.8 with Sigmas)",
+        "shutter_speed": "Auto",
+        "iso": "Auto",
+        "iso_auto": true,
+        "iso_auto_min_ss": "1/60",
+        "focus_mode": "AF-S",
+        "focus_area": "Wide",
+        "subject_recognition": "On",
+        "recognition_target": "Human",
+        "drive_mode": "Single Shooting",
+        "white_balance": "Auto",
+        "steadyshot_still": "On",
+        "metering_mode": "Multi",
+        "long_exposure_nr": "Off"
+      },
+      "physical_setup": [
+        "Mount lens with widest aperture for the scene",
+        "11mm f/1.8 = maximum light gathering"
+      ],
+      "field_notes": {
+        "why_wide_open": "In low light, gathering light is priority #1. DoF is secondary.",
+        "why_1_60_min": "Handheld limit. Below 1/60 = camera shake with wide lenses.",
+        "when_to_adjust": "Static scene on a surface → drop to 1/30 or 1/15. Moving people → keep 1/60."
+      }
+    },
+
+    "M3": {
+      "name": "Night Sky / Stars",
+      "recall_method": "MENU → (Shooting) → Shooting Mode → Recall Camera Setting → M3",
+      "primary_lens": "sony-11mm",
+      "secondary_lens": "sigma-10-18",
+      "tripod_required": true,
+      "settings": {
+        "shoot_mode": "Manual (M)",
+        "aperture": "f/1.8",
+        "shutter_speed": "20s",
+        "iso": 3200,
+        "iso_auto": false,
+        "focus_mode": "MF",
+        "focus_area": "N/A (manual focus)",
+        "subject_recognition": "Off",
+        "drive_mode": "Self-timer 2s",
+        "white_balance": "Daylight (or 3800K)",
+        "steadyshot_still": "Off",
+        "long_exposure_nr": "Off",
+        "peaking_display": "On",
+        "peaking_color": "Red"
+      },
+      "physical_setup": [
+        "Mount Sony 11mm f/1.8",
+        "Mount on tripod — REQUIRED",
+        "OSS/SteadyShot OFF",
+        "Focus: zoom in on bright star in live view → rotate focus ring until star is pinpoint → lock"
+      ],
+      "field_notes": {
+        "why_f18": "Gathers 2.25× more light than f/2.8. Stars need every photon.",
+        "why_20s": "500 rule: 500 / 11mm = 45s max. 20s is conservative for sharp, round stars.",
+        "why_iso3200": "Starting point. Dark sky (no moon, no city) → try ISO 1600. Light-polluted → ISO 6400.",
+        "why_daylight_wb": "AWB makes stars orange. Daylight = neutral whites.",
+        "why_long_exp_nr_off": "Long Exp NR blocks camera for 20+ seconds between shots.",
+        "why_2s_timer": "Pressing shutter causes vibration that blurs stars. 2s lets vibration settle.",
+        "when_to_adjust": "Moon up → shorten to 10s. Very dark sky → try 25s. Check star shape: if trailing, shorten."
+      }
+    },
+
+    "M4": {
+      "name": "Video — Wildlife",
+      "recall_method": "MENU → (Shooting) → Shooting Mode → Recall Camera Setting → M4",
+      "primary_lens": "sony-70-350",
+      "still_movie_dial": "Movie",
+      "settings": {
+        "shoot_mode": "Manual (M) — video",
+        "file_format_movie": "XAVC S 4K",
+        "movie_settings": "4K 30p (or 60p for slow motion option)",
+        "aperture": "f/6.3",
+        "shutter_speed": "1/60s (for 30p) or 1/125s (for 60p)",
+        "iso": "Auto",
+        "iso_auto": true,
+        "focus_mode": "AF-C",
+        "focus_area": "Zone",
+        "subject_recognition": "On",
+        "recognition_target": "Animal",
+        "steadyshot_movie": "Active",
+        "audio_recording": "On",
+        "picture_profile": "Standard",
+        "white_balance": "Auto"
+      },
+      "physical_setup": [
+        "Mount Sony 70-350mm",
+        "OSS switch ON (lens)",
+        "Still/Movie/S&Q dial → Movie position"
+      ],
+      "field_notes": {
+        "why_180_shutter_rule": "Shutter at 2× frame rate = natural motion blur. 30p → 1/60s. 60p → 1/125s.",
+        "why_active_steadyshot": "Video benefits from maximum stabilization. Walking/panning with long lens is hard.",
+        "slog3_note": "If color grading in post: switch Picture Profile to S-Log3. Flat/grey on screen is normal.",
+        "why_different_from_mr2": "Video has different shutter speed rules, stronger IS needs, and video-specific AF behavior."
+      }
+    }
+  }
+}
