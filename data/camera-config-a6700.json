@@ -62,9 +62,9 @@
     "display": {
       "grid_line_display": "On",
       "grid_line_type": "Rule of 3rds",
-      "histogram": "On",
-      "level_gauge": "On",
-      "menu_path": "MENU → (Shooting) → Shooting Display"
+      "histogram": "DISP button mode — not a menu setting. Press DISP to cycle to Histogram view.",
+      "level_gauge": "DISP button mode — not a menu setting. Press DISP to cycle to Level view.",
+      "menu_path": "MENU → (Shooting) → Shooting Display (for grid lines only)"
     },
     "focus_assist": {
       "peaking_display": "On",
@@ -209,8 +209,7 @@
         "drive_mode": "Single Shooting",
         "white_balance": "Auto",
         "steadyshot_still": "On",
-        "metering_mode": "Multi",
-        "soft_skin_effect": "Low"
+        "metering_mode": "Multi"
       },
       "physical_setup": [
         "Mount Sigma 18-50mm f/2.8, set to 50mm for tighter framing",
@@ -230,7 +229,8 @@
       "secondary_lens": "sigma-18-50",
       "settings": {
         "shoot_mode": "Aperture Priority (A)",
-        "aperture": "Widest available (f/1.8 with 11mm, f/2.8 with Sigmas)",
+        "aperture": "f/1.8",
+        "_aperture_note": "Saved with 11mm mounted. Camera clips to lens minimum if a slower lens is used.",
         "shutter_speed": "Auto",
         "iso": "Auto",
         "iso_auto": true,
@@ -269,7 +269,7 @@
         "iso": 3200,
         "iso_auto": false,
         "focus_mode": "MF",
-        "focus_area": "N/A (manual focus)",
+        "focus_area": "Center",
         "subject_recognition": "Off",
         "drive_mode": "Self-timer 2s",
         "white_balance": "Daylight (or 3800K)",
@@ -303,9 +303,9 @@
       "settings": {
         "shoot_mode": "Manual (M) — video",
         "file_format_movie": "XAVC S 4K",
-        "movie_settings": "4K 30p (or 60p for slow motion option)",
+        "movie_settings": "4K 60p",
         "aperture": "f/6.3",
-        "shutter_speed": "1/60s (for 30p) or 1/125s (for 60p)",
+        "shutter_speed": "1/125s",
         "iso": "Auto",
         "iso_auto": true,
         "focus_mode": "AF-C",
