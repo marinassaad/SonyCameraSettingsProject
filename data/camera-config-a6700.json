@@ -143,13 +143,11 @@
         "drive_mode": "Hi Burst",
         "white_balance": "Auto",
         "steadyshot_still": "On",
-        "steadyshot_mode": "Mode 2 (panning)",
         "metering_mode": "Multi"
       },
       "physical_setup": [
         "Mount Sony 70-350mm",
-        "OSS switch ON (lens)",
-        "Set SteadyShot to Mode 2 for panning"
+        "OSS switch ON (lens) — controls stabilization, overrides camera menu"
       ],
       "field_notes": {
         "why_manual_auto_iso": "Lock aperture (DoF) and shutter (freeze motion). ISO is the flexible variable.",
@@ -170,6 +168,7 @@
         "shutter_speed": "Auto",
         "iso": "Auto",
         "iso_auto": true,
+        "iso_auto_min_ss": "1/125",
         "focus_mode": "AF-S",
         "focus_area": "Wide",
         "subject_recognition": "On",
@@ -200,6 +199,7 @@
         "shutter_speed": "Auto",
         "iso": "Auto",
         "iso_auto": true,
+        "iso_auto_min_ss": "1/125",
         "focus_mode": "AF-S",
         "focus_area": "Wide",
         "subject_recognition": "On",
@@ -275,8 +275,7 @@
         "white_balance": "Daylight (or 3800K)",
         "steadyshot_still": "Off",
         "long_exposure_nr": "Off",
-        "peaking_display": "On",
-        "peaking_color": "Red"
+        "_peaking_note": "Peaking is a global setting (already configured: On, Mid, Red). Not slot-specific."
       },
       "physical_setup": [
         "Mount Sony 11mm f/1.8",
