@@ -74,18 +74,18 @@
     },
     "autofocus": {
       "subject_recog_in_af": "On",
-      "af_illuminator": "On",
-      "menu_path": "MENU → (Focus) → AF/MF and Subject Recognition"
+      "af_illuminator": "Auto",
+      "menu_path": "MENU → (Focus) → Subject Recognition / AF/MF"
     },
     "playback": {
       "auto_review": "2 Sec",
-      "menu_path": "MENU → (Setup) → Power Setting Option"
+      "menu_path": "MENU → (Setup) → Display Option → Auto Review"
     },
     "custom_buttons": {
       "C1": "ISO",
       "C2": "White Balance",
       "C3": "Focus Mode",
-      "AEL": "Eye AF (hold)",
+      "AF-ON": "Subject Recog. AF (hold to activate Eye AF)",
       "menu_path": "MENU → (Setup) → Operation Customize → Custom Key/Dial Set."
     }
   },
