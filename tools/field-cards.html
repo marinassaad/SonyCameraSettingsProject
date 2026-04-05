@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sony A6700 — Field Reference Cards</title>
+<style>
+  /* ─── PAGE SETUP ─────────────────────────────────────────────── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, Arial, sans-serif;
+    background: #f0f0f0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .instructions {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 24px;
+  }
+
+  /* ─── CARD GRID ──────────────────────────────────────────────── */
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 24px 0 8px;
+  }
+
+  /* ─── CARD ───────────────────────────────────────────────────── */
+  .card {
+    width: 252px;   /* 2.625 inches at 96dpi — fits 3 per A4 row */
+    min-height: 396px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── CARD HEADER ────────────────────────────────────────────── */
+  .card-header {
+    padding: 10px 12px 8px;
+    color: white;
+  }
+
+  .card-header .slot {
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .card-header .name {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-top: 2px;
+  }
+
+  .card-header .recall {
+    font-size: 9px;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  /* ─── COLORS PER SLOT ────────────────────────────────────────── */
+  .mr1 .card-header { background: #2e7d32; }
+  .mr2 .card-header { background: #bf360c; }
+  .mr3 .card-header { background: #1565c0; }
+  .m1  .card-header { background: #6a1b9a; }
+  .m2  .card-header { background: #e65100; }
+  .m3  .card-header { background: #1a237e; }
+  .m4  .card-header { background: #4e342e; }
+
+  .mr1 { border-top: 3px solid #2e7d32; }
+  .mr2 { border-top: 3px solid #bf360c; }
+  .mr3 { border-top: 3px solid #1565c0; }
+  .m1  { border-top: 3px solid #6a1b9a; }
+  .m2  { border-top: 3px solid #e65100; }
+  .m3  { border-top: 3px solid #1a237e; }
+  .m4  { border-top: 3px solid #4e342e; }
+
+  /* ─── CARD BODY ──────────────────────────────────────────────── */
+  .card-body {
+    padding: 10px 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ─── LENS ROW ───────────────────────────────────────────────── */
+  .lens {
+    font-size: 10px;
+    color: #555;
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+  .lens strong { color: #222; }
+
+  /* ─── SETTINGS TABLE ─────────────────────────────────────────── */
+  .settings {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .settings tr {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .settings td {
+    font-size: 10.5px;
+    padding: 3px 0;
+    vertical-align: top;
+  }
+
+  .settings td:first-child {
+    color: #888;
+    width: 42%;
+    padding-right: 6px;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding-top: 4px;
+  }
+
+  .settings td:last-child {
+    color: #111;
+    font-weight: 600;
+  }
+
+  /* ─── PHYSICAL SETUP ─────────────────────────────────────────── */
+  .setup-title {
+    font-size: 8.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  .setup-list {
+    list-style: none;
+    margin-top: 3px;
+  }
+
+  .setup-list li {
+    font-size: 10px;
+    color: #333;
+    padding: 2px 0 2px 12px;
+    position: relative;
+  }
+
+  .setup-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #aaa;
+    font-size: 9px;
+  }
+
+  /* ─── CARD BACK ──────────────────────────────────────────────── */
+  .card.back .card-body {
+    gap: 6px;
+  }
+
+  .why-block {
+    background: #fafafa;
+    border-left: 3px solid #ddd;
+    border-radius: 0 4px 4px 0;
+    padding: 5px 8px;
+  }
+
+  .why-block .why-key {
+    font-size: 9px;
+    font-weight: bold;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .why-block .why-val {
+    font-size: 10px;
+    color: #333;
+    margin-top: 1px;
+    line-height: 1.4;
+  }
+
+  .adjust-block {
+    margin-top: 4px;
+    padding: 6px 8px;
+    background: #fff8e1;
+    border-radius: 4px;
+    border: 1px solid #ffe082;
+  }
+
+  .adjust-block .adjust-title {
+    font-size: 8.5px;
+    font-weight: bold;
+    color: #f57f17;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .adjust-block .adjust-text {
+    font-size: 10px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  /* ─── PRINT ──────────────────────────────────────────────────── */
+  @media print {
+    body {
+      background: white;
+      padding: 6mm;
+    }
+
+    h1, .instructions { display: none; }
+
+    .grid {
+      gap: 6mm;
+    }
+
+    .card {
+      box-shadow: none;
+      border: 0.5px solid #ccc;
+      break-inside: avoid;
+    }
+
+    .section-title {
+      page-break-before: always;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Sony A6700 — Field Reference Cards</h1>
+<p class="instructions">Print this page → Cut cards → Laminate front + back pairs</p>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  FRONTS                                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section-title">Card Fronts — Settings</div>
+<div class="grid">
+
+  <!-- MR1 FRONT -->
+  <div class="card mr1">
+    <div class="card-header">
+      <div class="slot">MR1 · Dial position 1</div>
+      <div class="name">Landscapes</div>
+      <div class="recall">Mode dial → 1</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sigma 10-18mm f/2.8 &nbsp;|&nbsp; <strong>Alt:</strong> 70-350mm</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Aperture Priority (A)</td></tr>
+        <tr><td>Aperture</td><td>f/8</td></tr>
+        <tr><td>ISO</td><td>100 · Auto OFF</td></tr>
+        <tr><td>Focus Mode</td><td>AF-S</td></tr>
+        <tr><td>Focus Area</td><td>Zone</td></tr>
+        <tr><td>Subject Recog</td><td>Off</td></tr>
+        <tr><td>Drive</td><td>Single</td></tr>
+        <tr><td>White Balance</td><td>Auto</td></tr>
+        <tr><td>SteadyShot</td><td>On (Off on tripod)</td></tr>
+        <tr><td>Metering</td><td>Multi</td></tr>
+        <tr><td>Creative Look</td><td>ST</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup</div>
+      <ul class="setup-list">
+        <li>Mount Sigma 10-18mm f/2.8</li>
+        <li>Tripod recommended for slow shutter</li>
+        <li>Turn SteadyShot OFF if on tripod</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MR2 FRONT -->
+  <div class="card mr2">
+    <div class="card-header">
+      <div class="slot">MR2 · Dial position 2</div>
+      <div class="name">Wildlife</div>
+      <div class="recall">Mode dial → 2</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sony 70-350mm f/4.5-6.3 OSS</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Manual (M)</td></tr>
+        <tr><td>Aperture</td><td>f/6.3</td></tr>
+        <tr><td>Shutter</td><td>1/1000s → adjust in field</td></tr>
+        <tr><td>ISO</td><td>Auto · no limit</td></tr>
+        <tr><td>Focus Mode</td><td>AF-C</td></tr>
+        <tr><td>Focus Area</td><td>Zone</td></tr>
+        <tr><td>Subject Recog</td><td>On · Animal</td></tr>
+        <tr><td>Drive</td><td>Hi Burst</td></tr>
+        <tr><td>Silent Mode</td><td>On</td></tr>
+        <tr><td>SteadyShot</td><td>On (via lens OSS switch)</td></tr>
+        <tr><td>Metering</td><td>Multi</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup</div>
+      <ul class="setup-list">
+        <li>Mount Sony 70-350mm</li>
+        <li>OSS switch ON (on the lens)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MR3 FRONT -->
+  <div class="card mr3">
+    <div class="card-header">
+      <div class="slot">MR3 · Dial position 3</div>
+      <div class="name">General / Street</div>
+      <div class="recall">Mode dial → 3</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sigma 18-50mm f/2.8</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Aperture Priority (A)</td></tr>
+        <tr><td>Aperture</td><td>f/5.6</td></tr>
+        <tr><td>ISO</td><td>Auto · min SS 1/125</td></tr>
+        <tr><td>Focus Mode</td><td>AF-S</td></tr>
+        <tr><td>Focus Area</td><td>Wide</td></tr>
+        <tr><td>Subject Recog</td><td>On · Human</td></tr>
+        <tr><td>Eye Select</td><td>Auto</td></tr>
+        <tr><td>Drive</td><td>Single</td></tr>
+        <tr><td>White Balance</td><td>Auto</td></tr>
+        <tr><td>SteadyShot</td><td>On</td></tr>
+        <tr><td>Metering</td><td>Multi</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup</div>
+      <ul class="setup-list">
+        <li>Mount Sigma 18-50mm f/2.8</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M1 FRONT -->
+  <div class="card m1">
+    <div class="card-header">
+      <div class="slot">M1 · Card Slot 1</div>
+      <div class="name">Portrait / People</div>
+      <div class="recall">Dial → 1/2/3 · Menu → Recall → M1</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sigma 18-50mm f/2.8 at 50mm</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Aperture Priority (A)</td></tr>
+        <tr><td>Aperture</td><td>f/2.8</td></tr>
+        <tr><td>ISO</td><td>Auto · min SS 1/125</td></tr>
+        <tr><td>Focus Mode</td><td>AF-S</td></tr>
+        <tr><td>Focus Area</td><td>Wide</td></tr>
+        <tr><td>Subject Recog</td><td>On · Human</td></tr>
+        <tr><td>Eye Select</td><td>Auto</td></tr>
+        <tr><td>Face Priority</td><td>On</td></tr>
+        <tr><td>Drive</td><td>Single</td></tr>
+        <tr><td>White Balance</td><td>Auto</td></tr>
+        <tr><td>SteadyShot</td><td>On</td></tr>
+        <tr><td>Metering</td><td>Multi</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup</div>
+      <ul class="setup-list">
+        <li>Mount Sigma 18-50mm, zoom to 50mm</li>
+        <li>Alt: 70-350mm at 70mm (compressed portrait)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M2 FRONT -->
+  <div class="card m2">
+    <div class="card-header">
+      <div class="slot">M2 · Card Slot 2</div>
+      <div class="name">Low Light / Dusk-Dawn</div>
+      <div class="recall">Dial → 1/2/3 · Menu → Recall → M2</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sony 11mm f/1.8 &nbsp;|&nbsp; <strong>Alt:</strong> Sigma 18-50mm</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Aperture Priority (A)</td></tr>
+        <tr><td>Aperture</td><td>f/1.8 (widest of lens)</td></tr>
+        <tr><td>ISO</td><td>Auto · min SS 1/60</td></tr>
+        <tr><td>Focus Mode</td><td>AF-S</td></tr>
+        <tr><td>Focus Area</td><td>Wide</td></tr>
+        <tr><td>Subject Recog</td><td>On · Human</td></tr>
+        <tr><td>Drive</td><td>Single</td></tr>
+        <tr><td>White Balance</td><td>Auto</td></tr>
+        <tr><td>SteadyShot</td><td>On</td></tr>
+        <tr><td>Long Exp NR</td><td>Off</td></tr>
+        <tr><td>Metering</td><td>Multi</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup</div>
+      <ul class="setup-list">
+        <li>Mount lens with widest aperture</li>
+        <li>11mm f/1.8 = maximum light gathering</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M3 FRONT -->
+  <div class="card m3">
+    <div class="card-header">
+      <div class="slot">M3 · Card Slot 3</div>
+      <div class="name">Night Sky / Stars ★</div>
+      <div class="recall">Dial → 1/2/3 · Menu → Recall → M3</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sony 11mm f/1.8 &nbsp;|&nbsp; <strong>Alt:</strong> Sigma 10-18mm</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Manual (M)</td></tr>
+        <tr><td>Aperture</td><td>f/1.8</td></tr>
+        <tr><td>Shutter</td><td>20s</td></tr>
+        <tr><td>ISO</td><td>3200 · Auto OFF</td></tr>
+        <tr><td>Focus Mode</td><td>MF</td></tr>
+        <tr><td>Focus Area</td><td>Center</td></tr>
+        <tr><td>Subject Recog</td><td>Off</td></tr>
+        <tr><td>Drive</td><td>Self-timer 2s</td></tr>
+        <tr><td>White Balance</td><td>Daylight</td></tr>
+        <tr><td>SteadyShot</td><td>OFF</td></tr>
+        <tr><td>Long Exp NR</td><td>Off</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup — TRIPOD REQUIRED</div>
+      <ul class="setup-list">
+        <li>Mount Sony 11mm f/1.8</li>
+        <li>Tripod — mandatory</li>
+        <li>SteadyShot OFF</li>
+        <li>Focus: zoom on star → rotate until pinpoint</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- M4 FRONT -->
+  <div class="card m4">
+    <div class="card-header">
+      <div class="slot">M4 · Card Slot 4 · VIDEO</div>
+      <div class="name">Video — Wildlife</div>
+      <div class="recall">S&Q dial → Movie · Recall → M4</div>
+    </div>
+    <div class="card-body">
+      <div class="lens"><strong>Primary:</strong> Sony 70-350mm f/4.5-6.3 OSS</div>
+      <table class="settings">
+        <tr><td>Mode</td><td>Manual (M) — Video</td></tr>
+        <tr><td>Format</td><td>XAVC S 4K · 60p</td></tr>
+        <tr><td>Aperture</td><td>f/6.3</td></tr>
+        <tr><td>Shutter</td><td>1/125s</td></tr>
+        <tr><td>ISO</td><td>Auto · no limit</td></tr>
+        <tr><td>Focus Mode</td><td>AF-C</td></tr>
+        <tr><td>Focus Area</td><td>Zone</td></tr>
+        <tr><td>Subject Recog</td><td>On · Animal</td></tr>
+        <tr><td>SteadyShot</td><td>Active</td></tr>
+        <tr><td>Audio</td><td>On</td></tr>
+        <tr><td>Picture Profile</td><td>Standard</td></tr>
+      </table>
+      <div class="setup-title">Physical Setup</div>
+      <ul class="setup-list">
+        <li>Still/Movie/S&Q dial → Movie</li>
+        <li>Mount Sony 70-350mm</li>
+        <li>OSS switch ON (on the lens)</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end fronts grid -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  BACKS                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section-title">Card Backs — Why &amp; When to Adjust</div>
+<div class="grid">
+
+  <!-- MR1 BACK -->
+  <div class="card back mr1">
+    <div class="card-header">
+      <div class="slot">MR1 · Back</div>
+      <div class="name">Landscapes</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why f/8?</div>
+        <div class="why-val">Lens sweet spot. Max sharpness + deep DoF. Avoid f/16+ (diffraction blur).</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why ISO 100?</div>
+        <div class="why-val">Base ISO = cleanest image. Camera controls shutter speed automatically.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why AF-S?</div>
+        <div class="why-val">Landscapes don't move. Lock focus once, compose, shoot.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why SteadyShot OFF on tripod?</div>
+        <div class="why-val">IS on a tripod causes micro-vibrations that blur the image.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Clouds moving fast → raise shutter speed manually.<br>
+          Very dark scene → allow ISO up to 400.<br>
+          Want creative blur (waterfall) → use shutter priority instead.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MR2 BACK -->
+  <div class="card back mr2">
+    <div class="card-header">
+      <div class="slot">MR2 · Back</div>
+      <div class="name">Wildlife</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why Manual + Auto ISO?</div>
+        <div class="why-val">You guarantee aperture (DoF) AND shutter (freeze motion). ISO floats to compensate.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why f/6.3?</div>
+        <div class="why-val">Maximum aperture at 350mm. No choice — gather all available light.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why 1/1000s?</div>
+        <div class="why-val">Freezes walking/perched animals. Noisy sharp photo beats clean blurry one.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why silent mode?</div>
+        <div class="why-val">Avoids startling animals. Electronic shutter = zero noise.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Bird in flight → shutter to 1/2000–1/4000.<br>
+          Perched in low light → shutter to 1/500.<br>
+          Panning shot → lower to 1/250 for motion blur background.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MR3 BACK -->
+  <div class="card back mr3">
+    <div class="card-header">
+      <div class="slot">MR3 · Back</div>
+      <div class="name">General / Street</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why Aperture Priority?</div>
+        <div class="why-val">Walk-around doesn't need fast shutter. You pick the DoF, camera handles the rest.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why f/5.6?</div>
+        <div class="why-val">Sharp + versatile. Not so narrow it loses light, not so wide backgrounds distract.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why min SS 1/125?</div>
+        <div class="why-val">Keeps moving people sharp. Camera won't go below this — ISO compensates.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why Wide focus area?</div>
+        <div class="why-val">Lets the camera find subjects anywhere in the frame. Human recognition guides it.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Dark interior → open to f/2.8.<br>
+          Portrait of someone → switch to M1 instead.<br>
+          Busy scene, no people → turn Subject Recog off.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M1 BACK -->
+  <div class="card back m1">
+    <div class="card-header">
+      <div class="slot">M1 · Back</div>
+      <div class="name">Portrait / People</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why f/2.8?</div>
+        <div class="why-val">Widest aperture on 18-50mm = maximum subject/background separation (bokeh).</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why Eye AF?</div>
+        <div class="why-val">Eyes are the most critical part of a portrait. Camera locks on them automatically.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why min SS 1/125?</div>
+        <div class="why-val">Prevents subject motion blur even when people shift slightly.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Future upgrade</div>
+        <div class="why-val">Sigma 56mm f/1.4 (~$400) or Sony 50mm f/1.8 (~$250) for stronger bokeh.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Group photo → stop down to f/5.6 so everyone is sharp.<br>
+          Very dark → let ISO go higher, keep f/2.8.<br>
+          Child running → switch to AF-C.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M2 BACK -->
+  <div class="card back m2">
+    <div class="card-header">
+      <div class="slot">M2 · Back</div>
+      <div class="name">Low Light / Dusk-Dawn</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why wide open?</div>
+        <div class="why-val">In low light, gathering light is priority #1. DoF is secondary.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why min SS 1/60?</div>
+        <div class="why-val">Handheld limit for wide lenses. Below 1/60 = camera shake blur.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why 11mm first?</div>
+        <div class="why-val">f/1.8 gathers 2.25× more light than f/2.8 lenses. Makes a huge difference.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why Long Exp NR off?</div>
+        <div class="why-val">At 1/60s+ we never trigger long-exposure NR. Leaving it off avoids future delays.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Static scene, camera on surface → drop to 1/15.<br>
+          Moving people → keep 1/60 or raise it.<br>
+          Almost dark → switch to M3 (Night Sky) if on tripod.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M3 BACK -->
+  <div class="card back m3">
+    <div class="card-header">
+      <div class="slot">M3 · Back</div>
+      <div class="name">Night Sky / Stars ★</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why f/1.8?</div>
+        <div class="why-val">Gathers 2.25× more light than f/2.8. Stars need every photon.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why 20 seconds?</div>
+        <div class="why-val">500 rule: 500÷11mm = 45s max. 20s is safe — stars stay round, not trails.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why ISO 3200?</div>
+        <div class="why-val">Starting point. Dark sky → try 1600. Light pollution → try 6400.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why Daylight WB?</div>
+        <div class="why-val">AWB makes stars orange. Daylight = neutral white stars, natural sky color.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why 2s timer?</div>
+        <div class="why-val">Pressing shutter causes vibration. 2s delay lets the camera settle.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Moon up → shorten to 10s.<br>
+          Very dark sky → try 25s.<br>
+          Stars trailing → shorten shutter.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M4 BACK -->
+  <div class="card back m4">
+    <div class="card-header">
+      <div class="slot">M4 · Back</div>
+      <div class="name">Video — Wildlife</div>
+    </div>
+    <div class="card-body">
+      <div class="why-block">
+        <div class="why-key">Why 1/125s shutter?</div>
+        <div class="why-val">180° rule: shutter = 2× frame rate. 60p → 1/125s = natural motion blur.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why 60p?</div>
+        <div class="why-val">Smooth motion + slow-motion option in post (play at 30p = 2× slow motion).</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">Why Active SteadyShot?</div>
+        <div class="why-val">Maximum stabilization for handheld video with a long telephoto lens.</div>
+      </div>
+      <div class="why-block">
+        <div class="why-key">S-Log3 option</div>
+        <div class="why-val">If color grading in post: switch Picture Profile to S-Log3. Image will look flat/grey on screen — that's normal.</div>
+      </div>
+      <div class="adjust-block">
+        <div class="adjust-title">When to adjust in the field</div>
+        <div class="adjust-text">
+          Want cinematic look → switch to 30p / 1/60s.<br>
+          Color grading in post → switch to S-Log3.<br>
+          Noisy audio → check wind noise reduction.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end backs grid -->
+
+</body>
+</html>
